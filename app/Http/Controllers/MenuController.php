@@ -15,6 +15,7 @@ class MenuController extends Controller
         $menus=Menu::get();//Esto trae todos los menus
         return view('menus.index',compact('menus'));
         
+        
     }
 
     /**
@@ -22,6 +23,7 @@ class MenuController extends Controller
      */
     public function create()
     {
+        return view('menus.create');
         //
     }
 

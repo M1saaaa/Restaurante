@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Menus</h1>
+    <a href="{{route('menus.create')}}">Crear Nuevo Menu</a>
     <table>
         @foreach($menus as $menu)
         <tr>
