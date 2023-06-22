@@ -13,8 +13,9 @@
         @foreach($menus as $menu)
         <tr>
             <td>{{$menu->precio}}</td>
-            <td>{{$menu->nombre}}</td>
+            <td>{{$menu->nombres}}</td>
             <td>{{$menu->tipo}}</td>
+            <td><a href="{{route('menus.edit', $menu-> id )}}">Editar Menu</a></td>
         </tr>
 @endforeach
 

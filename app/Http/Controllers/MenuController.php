@@ -32,6 +32,9 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+       $datos=$request-> all();
+       Menu::create($datos);
+       return redirect()->route('menus.index');
         //
     }
 
@@ -48,6 +51,8 @@ class MenuController extends Controller
      */
     public function edit(string $id)
     {
+        $menu=Menu::find($id);
+        return view ("menus.edit", compact('menu'));
         //
     }
 
@@ -56,6 +61,12 @@ class MenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $menu=Menu::find($id);
+        $datos=$request->all();
+        $menu->update($datos);
+        $menu->save();
+        return redirect ()->route('menus.index');
+        
         //
     }
 
