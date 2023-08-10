@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
-class PermisoController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $permisos=Permission::get();//Esto trae todos los menus
-        return view('permisos.index',compact('permisos'));
+        $roles=Role::get();//Esto trae todos los menus
+        return view('roles.index',compact('roles'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        return view ('permisos.create');
+        return view ('roles.create');
     }
 
     /**
@@ -30,9 +30,8 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        Permission::create(['name'=>$request->permisos]);
-        return redirect('permisos');
-    
+        Role::create(['name'=>$request->roles]);
+        return redirect('roles');
     }
 
     /**
@@ -48,8 +47,8 @@ class PermisoController extends Controller
      */
     public function edit(string $id)
     {
-        $permiso=Permission::find($id);
-        return view('permisos.edit',compact('permiso'));
+        $role=Role::find($id);
+        return view('roles.edit',compact('role'));
     }
 
     /**
@@ -57,9 +56,9 @@ class PermisoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $permiso=Permission::find($id); 
-        $permiso->update (['name'=>$request->permisos]);
-        return redirect('permisos');
+        $role=Role::find($id); 
+        $role->update(['name'=>$request->roles]);
+        return redirect('roles');
     }
 
     /**

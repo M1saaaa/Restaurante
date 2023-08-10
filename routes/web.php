@@ -3,6 +3,8 @@
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermisoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('permisos',PermisoController::class);
+
+Route::resource('roles',RoleController::class);
+
+Route::resource('usuarios',UsuarioController::class);

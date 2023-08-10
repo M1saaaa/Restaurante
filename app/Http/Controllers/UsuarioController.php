@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
 
-class PermisoController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $permisos=Permission::get();//Esto trae todos los menus
-        return view('permisos.index',compact('permisos'));
+       $usuarios=User::get();
+       return view('usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        return view ('permisos.create');
+        return view('usuarios.create');
     }
 
     /**
@@ -30,9 +30,9 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        Permission::create(['name'=>$request->permisos]);
-        return redirect('permisos');
-    
+        $datos=$request->all();
+        User::create($datos);
+        return redirect('usuarios');
     }
 
     /**
@@ -48,8 +48,8 @@ class PermisoController extends Controller
      */
     public function edit(string $id)
     {
-        $permiso=Permission::find($id);
-        return view('permisos.edit',compact('permiso'));
+        $user=User::find($id);
+        return view('usuarios.edit', compact('user'));
     }
 
     /**
@@ -57,9 +57,8 @@ class PermisoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $permiso=Permission::find($id); 
-        $permiso->update (['name'=>$request->permisos]);
-        return redirect('permisos');
+        $user=User::find($id);
+        $user->update(['name'=>$request->usuarios]);
     }
 
     /**
