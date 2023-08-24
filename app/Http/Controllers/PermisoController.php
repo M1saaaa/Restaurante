@@ -65,8 +65,10 @@ class PermisoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $permiso=Permission::find($id);
+        $permiso->delete();
+        return redirect ()->route('permisos.index');
     }
 }

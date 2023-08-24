@@ -62,8 +62,9 @@ class MenuController extends Controller
     public function update(Request $request, string $id)
     {
         $menu=Menu::find($id);
-        $datos=$request->all();
-        $menu->update($datos);
+        $menu->nombres=$request->nombres;
+        $menu->tipo=$request->tipo;
+        $menu->precio=$request->precio;
         $menu->save();
         return redirect ()->route('menus.index');
         
@@ -73,8 +74,10 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $menu=Menu::find($id);
+        $menu->delete();
+        return redirect ()->route('menus.index');
     }
 }

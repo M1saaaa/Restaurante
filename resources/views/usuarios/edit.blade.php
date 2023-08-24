@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <h2>Editar Rol</h2>
-<form action="{{route('roles.update',$role->id)}}" method="post">
+<form action="{{route('usuarios.update',$usuario->id)}}" method="post">
     @method ('patch')
     @csrf
-    <input type="text" name="roles" placeholder="Nombre De role" value="{{$role->name}}">
-    <input type="submit">
+    <input type="text" name="name" placeholder="Nombre" value="{{$usuario->name}}">
+    <input type="text" name="apellido" placeholder="Apellido" value="{{$usuario->apellido}}">
+    <input type="email" name="email" placeholder="Email" value="{{$usuario->email}}">
+    <input type="submit" value="Cambiar">
 </form>
 @endsection

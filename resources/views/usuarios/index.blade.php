@@ -10,6 +10,9 @@
             <td>{{$usuario->name}}</td>
             <td>{{$usuario->guard_name}}</td>
             <td><a href="{{route('usuarios.edit', $usuario->id )}}">Editar Usuarios</a></td>
+            <td><form action="{{route('usuarios.destroy', $usuario->id)}}" method="POST">  @csrf @method('delete')
+                <button>Borrar</button>
+            </form></td>
         </tr>
         @endforeach
     </table>

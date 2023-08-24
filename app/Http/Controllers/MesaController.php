@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Mesa;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class MesaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $usuarios=User::get();
-       return view('usuarios.index', compact('usuarios'));
+        $mesas=Mesa::get();//Esto trae todos los menus
+        return view('mesas.index',compact('mesas'));
     }
 
     /**
@@ -22,7 +22,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        return view('mesas.create');
     }
 
     /**
@@ -31,9 +31,8 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $datos=$request->all();
-        //dd($datos);
-        User::create($datos);
-        return redirect('usuarios');
+       Mesa::create($datos);
+       return redirect()->route('mesas.index');
     }
 
     /**
@@ -49,8 +48,8 @@ class UsuarioController extends Controller
      */
     public function edit(string $id)
     {
-        $usuario=User::find($id);
-        return view('usuarios.edit', compact('usuario'));
+        $mesa=Mesa::find($id);
+        return view ("mesas.edit", compact('mesa'));
     }
 
     /**
@@ -58,10 +57,11 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user=User::find($id);
-        $datos=$request->all();
-        $user->update($datos);
-        return redirect('usuarios');
+        $mesa=Mesa::find($id);
+        $mesa->usuario=$request->usuario;
+        $mesa->capacidad=$request->capacidad;
+        $mesa->save();
+        return redirect ()->route('menus.index');
     }
 
     /**
@@ -69,8 +69,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
-        $user->delete();
-        return redirect ()->route('usuarios.index');
+        $mesa=Mesa::find($id);
+        $mesa->delete();
+        return redirect ()->route('mesas.index');
     }
 }

@@ -17,7 +17,12 @@
             <td>{{$menu->precio}}</td>
             <td>{{$menu->nombres}}</td>
             <td>{{$menu->tipo}}</td>
-            <td><a href="{{route('menus.edit', $menu-> id )}}">Editar Menu</a></td>
+            <td><a href="{{route('menus.edit', $menu->id )}}">Editar Menu</a></td>
+            <td><form action="{{route('menus.destroy', $menu->id)}}" method="POST">  @csrf @method('delete')
+                <button>Borrar</button>
+            </form></td>
+
+
         </tr>
         @endforeach
     </table>

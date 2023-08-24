@@ -5,6 +5,7 @@ use App\Http\Controllers\PermisoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\MesaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,6 @@ Route::resource('permisos',PermisoController::class);
 
 Route::resource('roles',RoleController::class);
 
-Route::resource('usuarios',UsuarioController::class);
+Route::resource('usuarios',UsuarioController::class);   
+
+Route::resource('mesas',MesaController::class);   

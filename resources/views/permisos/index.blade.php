@@ -10,6 +10,9 @@
             <td>{{$permiso->name}}</td>
             <td>{{$permiso->guard_name}}</td>
             <td><a href="{{route('permisos.edit', $permiso->id )}}">Editar Permiso</a></td>
+            <td><form action="{{route('permisos.destroy', $permiso->id)}}" method="POST">  @csrf @method('delete')
+                <button>Borrar</button>
+            </form></td>
         </tr>
         @endforeach
     </table>
