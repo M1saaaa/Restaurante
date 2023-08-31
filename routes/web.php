@@ -25,6 +25,10 @@ Route::resource('menus',MenuController::class);
 
 Auth::routes();
 
+Route::get('/roles/asignar/{Id}',[RoleController::class,'asignar'])->name('roles.asignar');
+
+Route::Post('/roles/asignar/{Id}',[RoleController::class,'asignarStore'])->name('roles.asignarStore');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('permisos',PermisoController::class);

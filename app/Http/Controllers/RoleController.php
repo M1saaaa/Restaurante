@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -70,4 +71,25 @@ class RoleController extends Controller
         $role->delete();
         return redirect ()->route('roles.index');
     }
+
+    public function asignar($id){
+        $role=Role::find($id);
+        $permisos=Permission::get();
+        $asignados=$role->permissions;
+        
+        return view('roles.asignar',compact('role','permisos'));
+    }
+
+    public function asignarStore(Request $request,$id){
+        $role=Role::find($id);
+        $IDs=$request->permiso;
+        $permisos=Permission::whereIn('id',$IDs)->select('name')->get();
+        $permisos=$permisos->pluck('name')->all();
+        $role->givePermissionTo($permisos);
+
+        return redirect ()->route('roles.index');
+    }
+
+
+
 }
