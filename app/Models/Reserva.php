@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mesa extends Model
+class Reserva extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'capacidad',
-        'id_mesa',
-        'estado'
+        'mesa_id',
+        'user_id',
+        'FechaHora',
+        'CantClientes',
     ];
-
-   public function mesas()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
-

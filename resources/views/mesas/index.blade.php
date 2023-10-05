@@ -15,7 +15,7 @@
         @foreach($mesas as $mesa)
         <tr>
             <td>{{$mesa->capacidad}}</td>
-            <td>{{$mesa->usuario}}</td>
+            <td>{{$mesa->id_mesa}}</td>
             <td><a href="{{route('mesas.edit', $mesa->id )}}">Editar mesa</a></td>
             <td><form action="{{route('mesas.destroy', $mesa->id)}}" method="POST">  @csrf @method('delete')
                 <button>Borrar</button>

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MesaController;
+use App\Http\Controllers\ReservaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::resource('roles',RoleController::class);
 Route::resource('usuarios',UsuarioController::class);   
 
 Route::resource('mesas',MesaController::class);   
+
+Route::resource('reservas',ReservaController::class);   

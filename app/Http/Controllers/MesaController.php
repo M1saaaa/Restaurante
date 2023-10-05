@@ -58,7 +58,7 @@ class MesaController extends Controller
     public function update(Request $request, string $id)
     {
         $mesa=Mesa::find($id);
-        $mesa->usuario=$request->usuario;
+        $mesa->id_mesa=$request->id_mesa;
         $mesa->capacidad=$request->capacidad;
         $mesa->save();
         return redirect ()->route('menus.index');
