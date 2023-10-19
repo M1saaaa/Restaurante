@@ -16,7 +16,7 @@
                 <option value="0">Cerrada</option>
                 <option value="1">Abierta</option>
             </select>
-            <input type="submit" name="cargar">
+            <input type="submit" value="Cargar">
         </form>
     </div>
 </body>

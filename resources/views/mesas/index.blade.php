@@ -17,11 +17,10 @@
             <td>{{$mesa->capacidad}}</td>
             <td>{{$mesa->id_mesa}}</td>
             <td><a href="{{route('mesas.edit', $mesa->id )}}">Editar mesa</a></td>
+            <td>@if($mesa->estado) Abierta @else Cerrada @endif</td>
             <td><form action="{{route('mesas.destroy', $mesa->id)}}" method="POST">  @csrf @method('delete')
                 <button>Borrar</button>
             </form></td>
-
-
         </tr>
         @endforeach
     </table>

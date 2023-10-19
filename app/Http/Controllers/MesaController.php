@@ -60,8 +60,9 @@ class MesaController extends Controller
         $mesa=Mesa::find($id);
         $mesa->id_mesa=$request->id_mesa;
         $mesa->capacidad=$request->capacidad;
+        $mesa->estado=$request->estado;
         $mesa->save();
-        return redirect ()->route('menus.index');
+        return redirect ()->route('mesas.index');
     }
 
     /**

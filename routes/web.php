@@ -40,4 +40,6 @@ Route::resource('usuarios',UsuarioController::class);
 
 Route::resource('mesas',MesaController::class);   
 
-Route::resource('reservas',ReservaController::class);   
+Route::get('reservas',[ReservaController::class,'create'])->name('reservas.index');
+
+Route::post('reservas/store',[ReservaController::class,'store'])->name('reservas.store');

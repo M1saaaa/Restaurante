@@ -11,6 +11,11 @@ use App\Models\User;
 
 class ReservaController extends Controller
 {
+    public function index(){
+        $reservas=Reserva::get();//Esto trae todas las reservas
+        return view('reservas.create',compact('reservas'));
+    }
+
     public function create(){
         $mesas=Mesa::where('estado',false)->get();
         $usuarios=User::get();
@@ -21,6 +26,6 @@ class ReservaController extends Controller
         $datos=$request->all();
         $datos['estado']=true;
         Reserva::created($datos);
-        return redirect('reservas.index')
+        return redirect('reservas.index');
     }
 }
