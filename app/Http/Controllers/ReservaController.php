@@ -13,7 +13,7 @@ class ReservaController extends Controller
 {
     public function index(){
         $reservas=Reserva::get();//Esto trae todas las reservas
-        return view('reservas.create',compact('reservas'));
+        return view('reservas.index',compact('reservas'));
     }
 
     public function create(){
@@ -24,8 +24,7 @@ class ReservaController extends Controller
 
     public function store(Request $request){
         $datos=$request->all();
-        $datos['estado']=true;
-        Reserva::created($datos);
-        return redirect('reservas.index');
+        Reserva::create($datos);
+        return redirect('/reservas');
     }
 }

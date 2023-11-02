@@ -1,0 +1,29 @@
+nav {
+    background-color: #333; /* Color de fondo del menú */
+    position: sticky; /* Hace que el menú sea sticky */
+    top: 0; /* Lo fija en la parte superior de la ventana */
+    z-index: 100; /* Asegura que esté por encima del contenido */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Diseño flexible (flexbox) */
+    justify-content: space-around; /* Distribución de los elementos */
+    background-color: #333; /* Puedes personalizar el color de fondo */
+}
+
+li {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff; /* Color de texto */
+    padding: 10px 20px; /* Espaciado del enlace */
+}
+
+a:hover {
+    background-color: #555; /* Color de fondo en el hover */
+}

@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Mesa::class)->constrained();
+            $table->tinyInteger('CantClientes');
             $table->foreignIdFor(User::class)->constrained();
             $table->dateTime('FechaHora');
-            $table->tinyInteger('CantClientes');
             $table->timestamps();
         });
     }

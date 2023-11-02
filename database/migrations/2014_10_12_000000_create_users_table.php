@@ -20,6 +20,8 @@ return new class extends Migration
             $table->rememberToken();
             $table->date('email_verified_at')->default(now());
             $table->integer('telefono')->default('0');
+            $table->string('direccion',55)->default('sin Direccion');
+            $table->string('direccionAlt',55)->default('Sin Direccion Alternativa');
             $table->timestamps();
         });
     }
