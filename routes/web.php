@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ReservaController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,4 @@ Route::resource('usuarios',UsuarioController::class);
 
 Route::resource('mesas',MesaController::class);   
 
-Route::get('reservas',[ReservaController::class,'create'])->name('reservas.index');
-
-Route::post('reservas/store',[ReservaController::class,'store'])->name('reservas.store');
+Route::resource('reservas',ReservaController::class);

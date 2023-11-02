@@ -9,11 +9,8 @@
     <h2>Reservas</h2>
     <form action="{{route('reservas.store')}}" method="post">
     @csrf
-        <select name="mesa_id">
-            @foreach($mesas as $mesa)
-                <option value="{{$mesa->id}}">{{$mesa->id_mesa}}</option>
-            @endforeach
-        <input list="Usuarios" name="Usuario" id="Usuario1">
+        <input type="number" name="CantClientes" placeholder="Cantidad de Comensales">
+        <input list="Usuarios" name="Usuario" id="Usuario1" placeholder="Nombre del Reservante">
         <datalist id="Usuario1">
             @foreach($usuarios as $user)
                 <option value="{{$user->id}}">{{$user->id_mesa}}</option>
